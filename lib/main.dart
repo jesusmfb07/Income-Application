@@ -1,7 +1,17 @@
+import 'package:app_movil/side_menu_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:app_movil/chat/domain/aggregates/home.dart'; // Asegúrate de que la ruta es correcta
+import 'package:app_movil/home.dart';
+import 'package:provider/provider.dart';
+// Asegúrate de que la ruta es correcta
 
-void main() => runApp(const MyApp());
+import 'home.dart';
+
+void main() {
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => SideMenuController())],
+    child: const MyApp(),
+  ));
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,3 +27,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
